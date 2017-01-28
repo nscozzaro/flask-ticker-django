@@ -1,0 +1,36 @@
+<head>
+    <meta charset="utf-8">
+    <title>Tiny Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--<link rel=stylesheet type=text/css href='/static/style.css'>-->
+
+</head>
+<body>
+<div class="col-md-4 col-md-offset-4">
+    <h1>User Input</h1>
+
+
+    <h4>Please enter a stock ticker eg. GOOG, and check desired features.</h4>
+
+    <form id='input' method='post' action='{% url 'ticker:graph' %}' class="form-group">
+         {% csrf_token %}
+        <div class="form-group">
+            <label for="text">Ticker symbol:</label>
+            <input type="text" class="form-control" name="ticker">
+        </div>
+
+        <p>
+            <input type="checkbox" name='features' value='Close'> Closing price<br>
+            <input type="checkbox" name='features' value='Adj. Close'> Adjusted closing price<br>
+            <input type="checkbox" name='features' value='Open'> Opening price<br>
+            <input type="checkbox" name='features' value='Adj. Open'> Adjusted opening price<br><br>
+            <input type="submit" class="btn btn-default" value="Submit">
+        </p>
+    </form>
+
+
+</div>
+</body>
